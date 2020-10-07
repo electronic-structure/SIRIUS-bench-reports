@@ -1,1 +1,1 @@
-More logs available here: https://gitlab.com/cscs-ci/electronic-structure/benchmarking/-/pipelines/199273427
+More logs available here: https://gitlab.com/cscs-ci/electronic-structure/benchmarking/-/pipelines/199280506
