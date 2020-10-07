@@ -3,275 +3,231 @@
   ================================================================================================================================================
                                                                                       Mean                                    #
   ------------------------------------------------------------------------------------------------------------------------------------------------
-- sirius                                                                    7.72 s  →   8.57 s     (+11.13%)           1   →      1               
-  ├ sirius::initialize                                                      2.87 s  →   2.79 s      (-2.96%)           1   →      1               
-- ├ sirius::Simulation_context::initialize                                  1.98 s  →   2.92 s     (+47.42%)           1   →      1               
-- │ ├ sirius::Simulation_context::init_comm                               390.53 μs →  94.16 ms (+24010.95%)           1   →      1               
-  │ ├ sirius::Unit_cell::initialize                                       328.11 ms → 310.17 ms     (-5.47%)           1   →      1               
-  │ │ ├ sirius::Atom_type::init                                           102.25 ms →  97.77 ms     (-4.38%)           3   →      3               
-+ │ │ └ sirius::Unit_cell::update                                          21.32 ms →  16.78 ms    (-21.27%)           1   →      1               
-  │ │   ├ sirius::Unit_cell::find_nearest_neighbours                      231.23 μs → 250.07 μs     (+8.15%)           1   →      1               
-+ │ │   └ sirius::Unit_cell::get_symmetry                                  21.08 ms →  16.48 ms    (-21.84%)           1   →      1               
-+ │ │     └ sirius::Unit_cell_symmetry                                     21.05 ms →  16.45 ms    (-21.85%)           1   →      1               
-  │ │       ├ sirius::Unit_cell_symmetry|spg                                4.94 ms →   5.10 ms     (+3.34%)           1   →      1               
-+ │ │       ├ sirius::Unit_cell_symmetry|equiv                              2.99 ms →  67.72 μs    (-97.74%)           1   →      1               
-  │ │       └ sirius::Unit_cell_symmetry|mag                               15.90 μs →  16.09 μs     (+1.18%)           1   →      1               
-- │ └ sirius::Simulation_context::update                                    1.61 s  →   2.47 s     (+53.29%)           1   →      1               
-  │   ├ sirius::Unit_cell::update                                           5.20 ms →   5.16 ms     (-0.80%)           1   →      1               
-  │   │ ├ sirius::Unit_cell::find_nearest_neighbours                       32.98 μs →  34.05 μs     (+3.24%)           1   →      1               
-  │   │ └ sirius::Unit_cell::get_symmetry                                   5.17 ms →   5.08 ms     (-1.67%)           1   →      1               
-  │   │   └ sirius::Unit_cell_symmetry                                      5.14 ms →   5.06 ms     (-1.64%)           1   →      1               
-  │   │     ├ sirius::Unit_cell_symmetry|spg                                5.03 ms →   4.95 ms     (-1.69%)           1   →      1               
-  │   │     ├ sirius::Unit_cell_symmetry|equiv                             51.61 μs →  52.95 μs     (+2.59%)           1   →      1               
-  │   │     └ sirius::Unit_cell_symmetry|mag                               17.57 μs →  19.22 μs     (+9.40%)           1   →      1               
-  │   ├ sirius::Radial_integrals|aug                                      270.84 ms → 272.48 ms     (+0.61%)           2   →      2               
-  │   ├ sirius::Radial_integrals|rho_core_pseudo                           21.25 ms →  21.20 ms     (-0.24%)           2   →      2               
-  │   ├ sirius::Radial_integrals|rho_pseudo                                19.02 ms →  19.05 ms     (+0.19%)           1   →      1               
-  │   ├ sirius::Radial_integrals|vloc                                      80.35 ms →  80.45 ms     (+0.12%)           2   →      2               
-  │   ├ sirius::Radial_integrals|beta                                      61.58 ms →  61.47 ms     (-0.18%)           2   →      2               
-  │   ├ sirius::Radial_integrals|atomic_wfs                                96.50 ms →  96.72 ms     (+0.23%)           4   →      4               
-  │   ├ sddk::Gvec::init                                                    4.23 ms →   4.27 ms     (+0.84%)           2   →      2               
-  │   │ └ sddk::Gvec::find_gvec_shells                                      2.97 ms →   3.03 ms     (+1.98%)           2   →      2               
-  │   ├ sddk::Gvec_shells                                                   4.07 ms →   3.97 ms     (-2.47%)           1   →      1               
-  │   ├ sirius::Simulation_context::init_atoms_to_grid_idx                295.94 μs → 284.55 μs     (-3.85%)           1   →      1               
-  │   └ sirius::Augmentation_operator::generate_pw_coeffs                  93.48 ms →  94.99 ms     (+1.61%)           3   →      3               
-+ ├ sirius::K_point_set::create_k_mesh                                      5.93 ms →   2.51 ms    (-57.65%)           1   →      1               
-  │ ├ sirius::K_point::K_point                                            770.50 ns → 831.50 ns     (+7.92%)           4   →      4               
-+ │ └ sirius::K_point_set::initialize                                       5.86 ms →   2.44 ms    (-58.35%)           1   →      1               
-+ │   └ sirius::K_point::initialize                                         5.61 ms →   2.19 ms    (-60.99%)           1   →      1               
-+ │     ├ sirius::K_point::generate_gkvec                                   4.59 ms →   1.12 ms    (-75.56%)           1   →      1               
-  │     │ └ sddk::Gvec::init                                              260.49 μs → 240.75 μs     (-7.58%)           1   →      1               
-- │     ├ sddk::matrix_storage::matrix_storage                              2.34 μs →   9.91 μs   (+323.45%)           1   →      1               
-- │     └ sirius::K_point::update                                         799.36 μs → 925.39 μs    (+15.77%)           1   →      1               
-  │       └ sirius::Beta_projectors                                       655.48 μs → 691.58 μs     (+5.51%)           1   →      1               
-- │         ├ sirius::Beta_projectors::generate_pw_coefs_t                392.54 μs → 560.49 μs    (+42.79%)           1   →      1               
-  │         └ sirius::Beta_projectors_base::generate                      259.43 μs                                    1                          
-- ├ sirius::Smooth_periodic_function                                       29.44 μs → 136.22 μs   (+362.77%)           2   →      2               
-- ├ sirius::Potential                                                       2.00 ms →   2.96 ms    (+48.08%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function                                     27.43 μs → 157.35 μs   (+473.57%)           6   →      6               
-  │ └ sirius::Potential::update                                             1.74 ms →   1.79 ms     (+3.01%)           1   →      1               
-  │   └ sirius::Potential::generate_local_potential                         1.73 ms →   1.78 ms     (+3.06%)           1   →      1               
-  │     ├ sirius::Simulation_context::make_periodic_function                1.30 ms →   1.19 ms     (-8.69%)           1   →      1               
-- │     └ sirius::Smooth_periodic_function::fft_transform                 332.13 μs → 480.27 μs    (+44.60%)           1   →      1               
-- ├ sirius::Density                                                         1.63 ms →   1.83 ms    (+11.66%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function                                     29.28 μs → 136.78 μs   (+367.11%)           2   →      2               
-  │ └ sirius::Density::update                                               1.57 ms →   1.55 ms     (-1.50%)           1   →      1               
-  │   └ sirius::Density::generate_pseudo_core_charge_density                1.56 ms →   1.54 ms     (-1.46%)           1   →      1               
-- │     ├ sirius::rho_core_ri_pseudo|values                                19.65 μs →  22.15 μs    (+12.72%)           1   →      1               
-+ │     ├ sirius::Simulation_context::make_periodic_function                1.32 ms →   1.18 ms    (-10.65%)           1   →      1               
-- │     └ sirius::Smooth_periodic_function::fft_transform                 205.99 μs → 321.32 μs    (+55.99%)           1   →      1               
-  ├ sirius::Density::initial_density                                        2.73 ms →   2.96 ms     (+8.26%)           1   →      1               
-  │ ├ sirius::Simulation_context::make_periodic_function                    1.18 ms →   1.18 ms     (+0.31%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function::fft_transform                     282.36 μs → 403.84 μs    (+43.02%)           2   →      2               
-  │ └ sirius::Periodic_function::integrate                                253.23 μs → 246.66 μs     (-2.59%)           1   →      1               
-+ ├ sirius::Potential::generate                                            23.27 ms →  20.32 ms    (-12.68%)           1   →      1               
-  │ ├ sirius::Potential::poisson                                            1.79 ms →   1.69 ms     (-5.56%)           1   →      1               
-- │ │ ├ sirius::Smooth_periodic_function::fft_transform                   200.42 μs → 246.55 μs    (+23.02%)           1   →      1               
-- │ │ └ sirius::Periodic_function|inner                                   263.47 μs → 318.23 μs    (+20.78%)           1   →      1               
-  │ │   └ sirius::Periodic_function|inner_local                           260.69 μs → 258.77 μs     (-0.74%)           1   →      1               
-  │ │     └ sirius::Smooth_periodic_function|inner_local                  260.42 μs → 258.49 μs     (-0.74%)           1   →      1               
-- │ ├ sirius::Periodic_function::add                                       10.95 μs →  13.99 μs    (+27.72%)           2   →      2               
-- │ ├ sirius::Potential::xc                                                 2.07 ms →   2.60 ms    (+25.61%)           1   →      1               
-- │ │ └ sirius::Potential::xc_rg_nonmagnetic                                2.03 ms →   2.55 ms    (+25.86%)           1   →      1               
-- │ │   ├ sirius::Smooth_periodic_function                                 28.61 μs → 135.62 μs   (+374.01%)           2   →      2               
-- │ │   └ sirius::Smooth_periodic_function::fft_transform                 206.53 μs → 290.01 μs    (+40.43%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function::fft_transform                     159.69 μs → 274.83 μs    (+72.10%)           1   →      1               
-+ │ ├ sirius::Potential::generate_D_operator_matrix                        19.20 ms →  15.69 ms    (-18.29%)           1   →      1               
-+ │ └ sirius::Potential::generate_PAW_effective_potential                 228.00 ns → 158.00 ns    (-30.70%)           1   →      1               
-- ├ sirius::Hamiltonian0                                                  377.77 μs → 513.31 μs    (+35.88%)           1   →      1               
-- │ ├ sirius::Local_operator                                              349.18 μs → 393.09 μs    (+12.58%)           1   →      1               
-+ │ │ ├ sirius::Smooth_periodic_function                                   26.91 μs →  22.65 μs    (-15.82%)           1   →      1               
-  │ │ └ sirius::Smooth_periodic_function::fft_transform                   300.89 μs → 316.91 μs     (+5.32%)           1   →      1               
-- │ ├ sirius::Non_local_operator                                          905.50 ns →  25.85 μs  (+2754.94%)           2   →      2               
-- │ ├ sirius::D_operator::initialize                                        8.46 μs →  30.25 μs   (+257.61%)           1   →      1               
-- │ └ sirius::Q_operator::initialize                                        7.43 μs →  25.76 μs   (+246.66%)           1   →      1               
-+ ├ sirius::Band::initialize_subspace                                      46.96 ms →  28.51 ms    (-39.28%)           1   →      1               
-- │ ├ sirius::Hamiltonian_k                                                17.66 μs →  27.72 μs    (+56.99%)           1   →      1               
-- │ │ ├ sirius::Local_operator::prepare_k                                  16.48 μs →  22.98 μs    (+39.44%)           1   →      1               
-  │ │ └ sirius::Beta_projectors_base::prepare                                           2.60 μs                                   1               
-+ │ ├ sirius::Band::initialize_subspace|kp                                 46.94 ms →  28.48 ms    (-39.33%)           1   →      1               
-- │ │ ├ sddk::matrix_storage::matrix_storage                                1.54 μs → 858.04 μs (+55598.65%)           4   →      4               
-+ │ │ ├ sirius::K_point::generate_atomic_wave_functions                   935.29 μs → 692.76 μs    (-25.93%)           1   →      1               
-  │ │ ├ sirius::Band::initialize_subspace|kp|wf                            43.19 μs →  47.15 μs     (+9.16%)           1   →      1               
-+ │ │ ├ sirius::Hamiltonian_k::apply_h_s                                   17.69 ms →   6.46 ms    (-63.51%)           1   →      1               
-+ │ │ │ ├ sirius::Local_operator::apply_h                                   8.41 ms →   5.86 ms    (-30.39%)           1   →      1               
-  │ │ │ │ ├ sddk::matrix_storage::remap_forward                             2.29 μs →   2.39 μs     (+4.51%)           1   →      1               
-- │ │ │ │ │ └ sddk::matrix_storage::set_num_extra                           1.18 μs →   1.55 μs    (+30.88%)           1   →      1               
-+ │ │ │ │ ├ sddk::matrix_storage::set_num_extra                           345.00 ns → 290.00 ns    (-15.94%)           1   →      1               
-- │ │ │ │ └ sddk::matrix_storage::remap_backward                          372.00 ns → 489.00 ns    (+31.45%)           1   →      1               
-  │ │ │ ├ sirius::Beta_projectors_base::generate                                       57.52 μs                                   1               
-+ │ │ │ ├ sirius::Beta_projectors_base::inner                               6.01 ms → 188.43 μs    (-96.87%)           1   →      1               
-+ │ │ │ └ sirius::Non_local_operator::apply                                 1.57 ms → 159.64 μs    (-89.85%)           2   →      2               
-+ │ │ ├ sirius::Band::set_subspace_mtrx                                   291.31 μs → 159.64 μs    (-45.20%)           2   →      2               
-+ │ │ │ └ sddk::inner                                                     284.97 μs → 153.91 μs    (-45.99%)           2   →      2               
-+ │ │ │   └ sddk::inner|local                                             277.39 μs →  15.34 μs    (-94.47%)           2   →      2               
-  │ │ ├ Eigensolver_lapack|zhegvx                                          27.19 ms                                    1                          
-  │ │ ├ Eigensolver_cuda|zhegvdx                                                       16.33 ms                                   1               
-+ │ │ └ sddk::transform                                                   337.72 μs →  99.07 μs    (-70.67%)           1   →      1               
-+ │ │   ├ sddk::transform|init                                             67.46 μs →  10.27 μs    (-84.78%)           1   →      1               
-+ │ │   └ sddk::transform|local                                           257.40 μs →  11.64 μs    (-95.48%)           1   →      1               
-  │ └ sirius::Beta_projectors_base::dismiss                                           414.00 ns                                   1               
-  ├ sirius::DFT_ground_state::scf_loop                                      2.24 s  →   2.30 s      (+2.76%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function                                    100.37 μs → 147.06 μs    (+46.52%)          19   →     19               
-  │ ├ sirius::DFT_ground_state::scf_loop|iteration                        100.78 ms → 103.21 ms     (+2.42%)          22   →     22               
-- │ │ ├ sirius::Hamiltonian0                                              341.18 μs → 482.54 μs    (+41.43%)          22   →     22               
-  │ │ │ ├ sirius::Local_operator                                          320.99 μs → 339.62 μs     (+5.80%)          22   →     22               
-+ │ │ │ │ ├ sirius::Smooth_periodic_function                               32.24 μs →  28.30 μs    (-12.23%)          22   →     22               
-  │ │ │ │ └ sirius::Smooth_periodic_function::fft_transform               272.65 μs → 247.74 μs     (-9.14%)          22   →     22               
-- │ │ │ ├ sirius::Non_local_operator                                      865.77 ns →  36.51 μs  (+4116.99%)          44   →     44               
-- │ │ │ ├ sirius::D_operator::initialize                                    7.11 μs →  32.10 μs   (+351.55%)          22   →     22               
-- │ │ │ └ sirius::Q_operator::initialize                                    5.50 μs →  27.15 μs   (+393.67%)          22   →     22               
-- │ │ ├ sirius::Band::solve                                                37.69 ms →  43.42 ms    (+15.22%)          22   →     22               
-- │ │ │ ├ sirius::Hamiltonian_k                                            18.49 μs →  31.54 μs    (+70.59%)          22   →     22               
-- │ │ │ │ ├ sirius::Local_operator::prepare_k                              17.51 μs →  26.40 μs    (+50.76%)          22   →     22               
-  │ │ │ │ └ sirius::Beta_projectors_base::prepare                                       3.70 μs                                  22               
-- │ │ │ ├ sirius::Band::diag_pseudo_potential_davidson                     33.63 ms →  38.37 ms    (+14.08%)          22   →     22               
-- │ │ │ │ ├ sirius::Band::diag_pseudo_potential_davidson|alloc             12.37 μs → 648.52 μs  (+5142.58%)          22   →     22               
-- │ │ │ │ │ └ sddk::matrix_storage::matrix_storage                        862.80 ns →  78.41 μs  (+8987.26%)         132   →    132               
-- │ │ │ │ ├ sirius::Hamiltonian_k::get_h_o_diag                           702.84 μs →   1.14 ms    (+61.59%)          22   →     22               
-- │ │ │ │ │ ├ sirius::Hamiltonian_k::get_h_o_diag|1                        10.75 μs →  13.21 μs    (+22.93%)          22   →     22               
-- │ │ │ │ │ └ sirius::Hamiltonian_k::get_h_o_diag|3                       219.25 μs → 341.64 μs    (+55.82%)          66   →     66               
-- │ │ │ │ └ sirius::Band::diag_pseudo_potential_davidson|iter              32.91 ms →  36.39 ms    (+10.59%)          22   →     22               
-+ │ │ │ │   ├ sirius::Hamiltonian_k::apply_h_s                              5.20 ms →   4.13 ms    (-20.51%)          87   →     87               
-+ │ │ │ │   │ ├ sirius::Local_operator::apply_h                             4.31 ms →   3.57 ms    (-17.07%)          87   →     87               
-+ │ │ │ │   │ │ ├ sddk::matrix_storage::remap_forward                       2.10 μs →   1.77 μs    (-15.67%)          87   →     87               
-+ │ │ │ │   │ │ │ └ sddk::matrix_storage::set_num_extra                     1.82 μs →   1.46 μs    (-19.67%)          87   →     87               
-+ │ │ │ │   │ │ ├ sddk::matrix_storage::set_num_extra                     554.29 ns → 398.93 ns    (-28.03%)          87   →     87               
-- │ │ │ │   │ │ └ sddk::matrix_storage::remap_backward                    518.85 ns → 620.21 ns    (+19.53%)          87   →     87               
-  │ │ │ │   │ ├ sirius::Beta_projectors_base::generate                                 51.34 μs                                  87               
-+ │ │ │ │   │ ├ sirius::Beta_projectors_base::inner                       286.85 μs → 145.60 μs    (-49.24%)          87   →     87               
-+ │ │ │ │   │ └ sirius::Non_local_operator::apply                         274.11 μs → 173.29 μs    (-36.78%)         174   →    174               
-+ │ │ │ │   ├ sddk::orthogonalize                                         888.07 μs → 447.60 μs    (-49.60%)          87   →     87               
-+ │ │ │ │   │ ├ sddk::inner                                               140.71 μs → 109.25 μs    (-22.36%)         152   →    152               
-+ │ │ │ │   │ │ └ sddk::inner|local                                       139.12 μs →  15.84 μs    (-88.61%)         152   →    152               
-- │ │ │ │   │ ├ sddk::orthogonalize|tmtrx                                  32.25 μs → 127.58 μs   (+295.61%)          87   →     87               
-+ │ │ │ │   │ ├ sddk::orthogonalize|transform                             248.81 μs →  52.07 μs    (-79.07%)          87   →     87               
-+ │ │ │ │   │ └ sddk::transform                                           473.35 μs →  97.47 μs    (-79.41%)          65   →     65               
-+ │ │ │ │   │   ├ sddk::transform|init                                     76.64 μs →  18.25 μs    (-76.19%)          65   →     65               
-+ │ │ │ │   │   └ sddk::transform|local                                   131.59 μs →   7.99 μs    (-93.93%)         195   →    195               
-+ │ │ │ │   ├ sirius::Band::set_subspace_mtrx                             210.43 μs → 130.46 μs    (-38.01%)          87   →     87               
-+ │ │ │ │   │ └ sddk::inner                                               195.33 μs → 115.34 μs    (-40.95%)          87   →     87               
-+ │ │ │ │   │   └ sddk::inner|local                                       194.29 μs →  17.28 μs    (-91.10%)          87   →     87               
-  │ │ │ │   ├ Eigensolver_lapack|zheevx                                   996.58 μs                                   87                          
-  │ │ │ │   ├ Eigensolver_cuda|zheevdx                                                  4.13 ms                                  87               
-+ │ │ │ │   ├ sirius::residuals                                           572.96 μs → 275.44 μs    (-51.93%)          86   →     86               
-+ │ │ │ │   │ ├ sddk::transform                                           417.67 μs →  99.06 μs    (-76.28%)          68   →     68               
-+ │ │ │ │   │ │ ├ sddk::transform|init                                     64.16 μs →  13.31 μs    (-79.26%)          68   →     68               
-+ │ │ │ │   │ │ └ sddk::transform|local                                   175.77 μs →  10.89 μs    (-93.81%)         136   →    136               
-+ │ │ │ │   │ └ sirius::normalized_preconditioned_residuals               296.63 μs → 183.36 μs    (-38.19%)          68   →     68               
-+ │ │ │ │   └ sirius::Band::diag_pseudo_potential_davidson|update_phi     879.51 μs → 156.01 μs    (-82.26%)          38   →     38               
-+ │ │ │ │     └ sddk::transform                                           533.88 μs →  98.47 μs    (-81.56%)          54   →     54               
-+ │ │ │ │       ├ sddk::transform|init                                     75.04 μs →  10.34 μs    (-86.22%)          54   →     54               
-+ │ │ │ │       └ sddk::transform|local                                   352.56 μs →   9.56 μs    (-97.29%)          70   →     70               
-  │ │ │ ├ sirius::Beta_projectors_base::dismiss                                       381.09 ns                                  22               
-+ │ │ │ └ sirius::K_point_set::sync_band_energies                          20.61 μs →  16.59 μs    (-19.50%)          22   →     22               
-  │ │ ├ sirius::K_point_set::find_band_occupancies                        202.07 μs → 193.80 μs     (-4.09%)          22   →     22               
-+ │ │ ├ sirius::Density::generate                                          37.10 ms →  26.47 ms    (-28.64%)          22   →     22               
-+ │ │ │ ├ sirius::Density::generate_valence                                28.80 ms →  18.27 ms    (-36.56%)          22   →     22               
-+ │ │ │ │ ├ sddk::matrix_storage::remap_forward                             2.94 μs →   2.39 μs    (-18.85%)          22   →     22               
-+ │ │ │ │ │ └ sddk::matrix_storage::set_num_extra                           2.65 μs →   2.12 μs    (-19.95%)          22   →     22               
-  │ │ │ │ ├ sirius::Density::add_k_point_contribution_dm                  410.06 μs → 427.82 μs     (+4.33%)          22   →     22               
-  │ │ │ │ │ ├ sirius::Beta_projectors_base::prepare                                     3.19 μs                                  22               
-  │ │ │ │ │ ├ sirius::Beta_projectors_base::generate                                  200.16 μs                                  22               
-+ │ │ │ │ │ ├ sirius::Beta_projectors_base::inner                         385.04 μs → 144.06 μs    (-62.59%)          22   →     22               
-  │ │ │ │ │ └ sirius::Beta_projectors_base::dismiss                                   562.86 ns                                  22               
-  │ │ │ │ ├ sirius::Density::add_k_point_contribution_rg                    2.87 ms →   2.78 ms     (-3.31%)          22   →     22               
-- │ │ │ │ ├ sirius::Smooth_periodic_function::fft_transform               140.13 μs → 193.48 μs    (+38.08%)          22   →     22               
-+ │ │ │ │ └ sirius::Density::augment                                       25.02 ms →  14.45 ms    (-42.25%)          22   →     22               
-+ │ │ │ │   └ sirius::Density::generate_rho_aug                            25.00 ms →  14.43 ms    (-42.27%)          22   →     22               
-  │ │ │ │     ├ sirius::Density::generate_rho_aug|gemm                      4.26 ms                                   66                          
-  │ │ │ │     └ sirius::Density::generate_rho_aug|sum                       2.81 ms                                   66                          
-  │ │ │ ├ sirius::Field4D::symmetrize                                       4.30 ms →   4.39 ms     (+1.94%)          22   →     22               
-  │ │ │ │ └ sirius::symmetrize_function|fpw                                 4.30 ms →   4.39 ms     (+1.95%)          22   →     22               
-- │ │ │ │   ├ sddk::Gvec_shells::remap_forward                            982.45 μs →   1.12 ms    (+13.55%)          22   →     22               
-  │ │ │ │   ├ sirius::symmetrize_function|fpw|local                         2.30 ms →   2.22 ms     (-3.63%)          22   →     22               
-  │ │ │ │   └ sddk::Gvec_shells::remap_backward                           996.10 μs →   1.03 ms     (+3.57%)          22   →     22               
-  │ │ │ ├ sirius::Density::symmetrize_density_matrix                        3.67 ms →   3.37 ms     (-8.36%)          22   →     22               
-- │ │ │ └ sirius::Smooth_periodic_function::fft_transform                 321.83 μs → 447.05 μs    (+38.91%)          22   →     22               
-- │ │ ├ sirius::Density::mix                                                4.97 ms →   5.69 ms    (+14.60%)          22   →     22               
-  │ │ │ ├ sirius::Density::mixer_input                                     22.97 μs →  23.80 μs     (+3.59%)          22   →     22               
-  │ │ │ ├ sirius::Periodic_function|inner                                 253.51 μs → 270.86 μs     (+6.84%)         274   →    274               
-  │ │ │ │ └ sirius::Periodic_function|inner_local                         250.48 μs → 250.49 μs     (+0.00%)         274   →    274               
-  │ │ │ │   └ sirius::Smooth_periodic_function|inner_local                250.30 μs → 250.35 μs     (+0.02%)         274   →    274               
-- │ │ │ └ sirius::Density::mixer_output                                   191.53 μs → 314.63 μs    (+64.27%)          22   →     22               
-- │ │ │   └ sirius::Smooth_periodic_function::fft_transform               177.59 μs → 300.76 μs    (+69.35%)          22   →     22               
-- │ │ ├ sirius::Potential::generate                                        13.42 ms →  19.78 ms    (+47.40%)          22   →     22               
-  │ │ │ ├ sirius::Potential::poisson                                        1.79 ms →   1.74 ms     (-2.85%)          22   →     22               
-- │ │ │ │ ├ sirius::Smooth_periodic_function::fft_transform               208.28 μs → 320.16 μs    (+53.72%)          22   →     22               
-  │ │ │ │ └ sirius::Periodic_function|inner                               263.00 μs → 281.16 μs     (+6.91%)          22   →     22               
-  │ │ │ │   └ sirius::Periodic_function|inner_local                       261.48 μs → 253.62 μs     (-3.00%)          22   →     22               
-  │ │ │ │     └ sirius::Smooth_periodic_function|inner_local              261.16 μs → 253.38 μs     (-2.98%)          22   →     22               
-- │ │ │ ├ sirius::Periodic_function::add                                   10.78 μs →  17.48 μs    (+62.07%)          44   →     44               
-  │ │ │ ├ sirius::Potential::xc                                             2.11 ms →   2.17 ms     (+2.99%)          22   →     22               
-  │ │ │ │ └ sirius::Potential::xc_rg_nonmagnetic                            2.05 ms →   2.12 ms     (+3.25%)          22   →     22               
-- │ │ │ │   ├ sirius::Smooth_periodic_function                             29.46 μs →  32.71 μs    (+11.03%)          44   →     44               
-- │ │ │ │   └ sirius::Smooth_periodic_function::fft_transform             202.33 μs → 301.61 μs    (+49.07%)          22   →     22               
-- │ │ │ ├ sirius::Smooth_periodic_function::fft_transform                 156.28 μs → 294.26 μs    (+88.29%)          22   →     22               
-- │ │ │ ├ sirius::Potential::generate_D_operator_matrix                     9.29 ms →  15.47 ms    (+66.56%)          22   →     22               
-+ │ │ │ └ sirius::Potential::generate_PAW_effective_potential             266.41 ns → 141.50 ns    (-46.89%)          22   →     22               
-  │ │ ├ sirius::Field4D::symmetrize                                         3.94 ms →   3.85 ms     (-2.18%)          22   →     22               
-  │ │ │ └ sirius::symmetrize_function|fpw                                   3.94 ms →   3.85 ms     (-2.17%)          22   →     22               
-  │ │ │   ├ sddk::Gvec_shells::remap_forward                              621.75 μs → 603.05 μs     (-3.01%)          22   →     22               
-  │ │ │   ├ sirius::symmetrize_function|fpw|local                           2.31 ms →   2.23 ms     (-3.47%)          22   →     22               
-  │ │ │   └ sddk::Gvec_shells::remap_backward                             979.46 μs → 995.66 μs     (+1.65%)          22   →     22               
-- │ │ ├ sirius::Smooth_periodic_function::fft_transform                   240.59 μs → 377.08 μs    (+56.73%)          22   →     22               
-  │ │ ├ sirius::Periodic_function|inner                                   250.01 μs → 252.48 μs     (+0.99%)         154   →    154               
-  │ │ │ └ sirius::Periodic_function|inner_local                           247.53 μs → 246.73 μs     (-0.32%)         154   →    154               
-  │ │ │   └ sirius::Smooth_periodic_function|inner_local                  247.25 μs → 246.60 μs     (-0.26%)         154   →    154               
-  │ │ ├ sirius::Smooth_periodic_function|inner                            258.12 μs → 254.58 μs     (-1.37%)          66   →     66               
-  │ │ │ └ sirius::Smooth_periodic_function|inner_local                    256.02 μs → 253.35 μs     (-1.04%)          66   →     66               
-  │ │ ├ sirius::Periodic_function::integrate                              238.10 μs → 243.76 μs     (+2.38%)          22   →     22               
-+ │ │ └ sirius::Density::get_magnetisation                                 51.38 μs →  43.07 μs    (-16.17%)          22   →     22               
-+ │ │   └ sirius::Density::compute_atomic_mag_mom                          49.57 μs →  41.80 μs    (-15.66%)          22   →     22               
-- │ ├ sirius::Smooth_periodic_function::gather_f_pw                       186.30 μs → 236.91 μs    (+27.17%)           2   →      2               
-  │ ├ sirius::Periodic_function|inner                                     245.06 μs → 240.16 μs     (-2.00%)           6   →      6               
-  │ │ └ sirius::Periodic_function|inner_local                             244.13 μs → 237.03 μs     (-2.91%)           6   →      6               
-  │ │   └ sirius::Smooth_periodic_function|inner_local                    244.02 μs → 236.92 μs     (-2.91%)           6   →      6               
-  │ └ sirius::Smooth_periodic_function|inner                              245.64 μs → 245.68 μs     (+0.02%)           3   →      3               
-  │   └ sirius::Smooth_periodic_function|inner_local                      244.15 μs → 244.25 μs     (+0.04%)           3   →      3               
-  ├ sirius::Stress|kin                                                    314.93 μs → 307.45 μs     (-2.38%)           1   →      1               
-  ├ sirius::Stress|har                                                    586.36 μs → 581.83 μs     (-0.77%)           1   →      1               
-  ├ sirius::Stress|ewald                                                    1.77 ms →   1.79 ms     (+1.27%)           1   →      1               
-  ├ sirius::Stress|vloc                                                     3.31 ms →   3.04 ms     (-8.19%)           1   →      1               
-+ │ └ sirius::Simulation_context::make_periodic_function                    1.24 ms →   1.09 ms    (-11.48%)           2   →      2               
-- ├ sirius::Smooth_periodic_function::fft_transform                       215.95 μs → 361.06 μs    (+67.20%)           1   →      1               
-  ├ sirius::rho_core_ri_pseudo|values                                      19.46 μs →  18.12 μs     (-6.87%)           1   →      1               
-+ ├ sirius::Simulation_context::make_periodic_function                      1.28 ms →   1.12 ms    (-13.11%)           1   →      1               
-  ├ sirius::Periodic_function|inner                                       259.77 μs → 257.67 μs     (-0.81%)           4   →      4               
-  │ └ sirius::Periodic_function|inner_local                               244.48 μs → 242.46 μs     (-0.83%)           4   →      4               
-  │   └ sirius::Smooth_periodic_function|inner_local                      244.32 μs → 242.31 μs     (-0.82%)           4   →      4               
-  ├ sirius::Smooth_periodic_function|inner                                259.48 μs → 266.04 μs     (+2.53%)           2   →      2               
-  │ └ sirius::Smooth_periodic_function|inner_local                        258.20 μs → 252.61 μs     (-2.16%)           2   →      2               
-+ ├ sirius::Stress|us                                                     327.21 ms → 189.40 ms    (-42.12%)           1   →      1               
-- │ ├ sirius::Smooth_periodic_function::fft_transform                     196.21 μs → 325.76 μs    (+66.02%)           1   →      1               
-  │ ├ sirius::Augmentation_operator_gvec_deriv                             77.13 ms →  79.58 ms     (+3.17%)           1   →      1               
-- │ ├ sirius::Augmentation_operator_gvec_deriv::prepare                   589.24 μs → 730.42 μs    (+23.96%)           3   →      3               
-  │ ├ sirius::Stress|us|phase_fac                                           1.27 ms →   1.15 ms     (-9.47%)           3   →      3               
-+ │ ├ sirius::Augmentation_operator_gvec_deriv::generate_pw_coeffs         22.35 ms →  35.85 μs    (-99.84%)           9   →      9               
-+ │ ├ sirius::Stress|us|prepare                                            72.13 μs →  58.53 μs    (-18.85%)          27   →     27               
-- │ └ sirius::Stress|us|gemm                                                1.30 ms →   3.77 ms   (+188.99%)          27   →     27               
-+ ├ sirius::Stress|nonloc                                                  14.52 ms →  12.75 ms    (-12.20%)           1   →      1               
-+ │ ├ sirius::Beta_projectors_strain_deriv::generate_pw_coefs_t             5.88 ms →   5.07 ms    (-13.91%)           1   →      1               
-+ │ └ sirius::Non_local_functor::add_k_point                                8.16 ms →   7.05 ms    (-13.63%)           1   →      1               
-  │   ├ sirius::Beta_projectors_base::inner                               340.15 μs                                   10                          
-- │   ├ sirius::Beta_projectors_base::prepare                               3.69 μs →   1.58 ms (+42681.12%)           1   →      2     (+100.00%)
-+ │   ├ sirius::Beta_projectors_base::generate                            275.15 μs →  53.74 μs    (-80.47%)           9   →     10      (+11.11%)
-  │   ├ sirius::Beta_projectors_base::inner                                           116.83 μs                                  10               
-- │   └ sirius::Beta_projectors_base::dismiss                              85.00 ns →   1.04 μs  (+1126.47%)           1   →      2     (+100.00%)
-+ ├ sirius::Force::calc_forces_vloc                                         1.44 ms →   1.24 ms    (-13.97%)           1   →      1               
-- ├ sirius::Force::calc_forces_us                                          23.97 ms →  79.68 ms   (+232.43%)           1   →      1               
-- │ └ sirius::Smooth_periodic_function::fft_transform                     252.07 μs → 421.64 μs    (+67.27%)           1   →      1               
-  ├ sirius::Force::calc_forces_nonloc                                       4.17 ms →   4.24 ms     (+1.62%)           1   →      1               
-  │ └ sirius::Non_local_functor::add_k_point                                2.95 ms →   2.91 ms     (-1.42%)           1   →      1               
-  │   ├ sirius::Beta_projectors_base::inner                               340.77 μs                                    4                          
-- │   ├ sirius::Beta_projectors_base::prepare                               2.92 μs → 364.89 μs (+12387.75%)           1   →      2     (+100.00%)
-+ │   ├ sirius::Beta_projectors_base::generate                            276.43 μs → 175.64 μs    (-36.46%)           3   →      4      (+33.33%)
-  │   ├ sirius::Beta_projectors_base::inner                                           176.12 μs                                   4               
-- │   └ sirius::Beta_projectors_base::dismiss                              84.00 ns → 892.00 ns   (+961.90%)           1   →      2     (+100.00%)
-- ├ sirius::Force::calc_forces_core                                         1.14 ms →   1.46 ms    (+28.51%)           1   →      1               
-- │ └ sirius::Smooth_periodic_function::fft_transform                     211.89 μs → 403.95 μs    (+90.64%)           1   →      1               
-  ├ sirius::Force::calc_forces_ewald                                       12.70 ms →  12.43 ms     (-2.12%)           1   →      1               
-- ├ sirius::Force::calc_forces_scf_corr                                   689.06 μs → 938.22 μs    (+36.16%)           1   →      1               
-+ ├ sirius::Force::hubbard_force                                            1.45 μs → 832.00 ns    (-42.78%)           1   →      1               
-- └ sirius::finalize                                                      124.86 ms → 151.95 ms    (+21.70%)           1   →      1               
+  sirius                                                                  123.87 s  → 132.24 s      (+6.76%)           1   →      1               
+  ├ sirius::initialize                                                      3.11 s  →   3.03 s      (-2.57%)           1   →      1               
+  ├ sirius::Simulation_context::initialize                                  3.93 s  →   3.84 s      (-2.38%)           1   →      1               
++ │ ├ sirius::Simulation_context::init_comm                                61.81 ms → 427.51 μs    (-99.31%)           1   →      1               
+  │ ├ sirius::Unit_cell::initialize                                       174.49 ms → 175.91 ms     (+0.82%)           1   →      1               
+  │ │ ├ sirius::Atom_type::init                                            79.46 ms →  78.50 ms     (-1.21%)           2   →      2               
+- │ │ └ sirius::Unit_cell::update                                          15.47 ms →  18.81 ms    (+21.55%)           1   →      1               
+  │ │   ├ sirius::Unit_cell::find_nearest_neighbours                        3.86 ms →   3.97 ms     (+2.88%)           1   →      1               
+- │ │   └ sirius::Unit_cell::get_symmetry                                  11.55 ms →  14.78 ms    (+27.95%)           1   →      1               
+- │ │     └ sirius::Unit_cell_symmetry                                     11.49 ms →  14.70 ms    (+27.94%)           1   →      1               
+  │ │       ├ sirius::Unit_cell_symmetry|spg                                2.75 ms →   2.78 ms     (+0.82%)           1   →      1               
+  │ │       ├ sirius::Unit_cell_symmetry|equiv                            473.23 μs → 519.00 μs     (+9.67%)           1   →      1               
+  │ │       └ sirius::Unit_cell_symmetry|mag                               14.96 μs →  15.67 μs     (+4.76%)           1   →      1               
+  │ └ sirius::Simulation_context::update                                    3.60 s  →   3.62 s      (+0.54%)           1   →      1               
+  │   ├ sirius::Unit_cell::update                                           7.12 ms →   7.15 ms     (+0.36%)           1   →      1               
+  │   │ ├ sirius::Unit_cell::find_nearest_neighbours                        3.83 ms →   3.69 ms     (-3.59%)           1   →      1               
+  │   │ └ sirius::Unit_cell::get_symmetry                                   3.25 ms →   3.40 ms     (+4.66%)           1   →      1               
+  │   │   └ sirius::Unit_cell_symmetry                                      3.20 ms →   3.36 ms     (+5.12%)           1   →      1               
+  │   │     ├ sirius::Unit_cell_symmetry|spg                                2.69 ms →   2.78 ms     (+3.53%)           1   →      1               
+- │   │     ├ sirius::Unit_cell_symmetry|equiv                            470.16 μs → 538.54 μs    (+14.54%)           1   →      1               
++ │   │     └ sirius::Unit_cell_symmetry|mag                               18.16 μs →  14.86 μs    (-18.16%)           1   →      1               
+  │   ├ sirius::Radial_integrals|aug                                      212.47 ms → 210.78 ms     (-0.80%)           2   →      2               
+  │   ├ sirius::Radial_integrals|rho_core_pseudo                           15.14 ms →  15.14 ms     (-0.01%)           2   →      2               
+  │   ├ sirius::Radial_integrals|rho_pseudo                                13.53 ms →  13.26 ms     (-2.00%)           1   →      1               
+  │   ├ sirius::Radial_integrals|vloc                                      56.31 ms →  56.34 ms     (+0.06%)           2   →      2               
+  │   ├ sirius::Radial_integrals|beta                                      45.10 ms →  45.16 ms     (+0.15%)           2   →      2               
+  │   ├ sirius::Radial_integrals|atomic_wfs                                60.11 ms →  60.43 ms     (+0.54%)           4   →      4               
+  │   ├ sddk::Gvec::init                                                   93.03 ms →  94.48 ms     (+1.56%)           2   →      2               
+  │   │ └ sddk::Gvec::find_gvec_shells                                     69.64 ms →  70.85 ms     (+1.74%)           2   →      2               
+  │   ├ sddk::Gvec_shells                                                 107.27 ms →  96.80 ms     (-9.76%)           1   →      1               
+  │   ├ sirius::Simulation_context::init_atoms_to_grid_idx                  2.09 ms →   1.98 ms     (-5.40%)           1   →      1               
+- │   └ sirius::Augmentation_operator::generate_pw_coeffs                 556.81 ms → 664.12 ms    (+19.27%)           2   →      2               
++ ├ sirius::K_point_set::create_k_mesh                                    140.94 ms →  89.25 ms    (-36.67%)           1   →      1               
+  │ ├ sirius::K_point::K_point                                              1.90 μs →   1.78 μs     (-5.91%)           4   →      4               
++ │ └ sirius::K_point_set::initialize                                     140.87 ms →  89.19 ms    (-36.69%)           1   →      1               
+  │   └ sirius::K_point::initialize                                        28.17 ms →  27.65 ms     (-1.84%)           1   →      1               
+  │     ├ sirius::K_point::generate_gkvec                                  11.16 ms →  10.83 ms     (-2.98%)           1   →      1               
+  │     │ └ sddk::Gvec::init                                                5.04 ms →   4.88 ms     (-3.20%)           1   →      1               
+- │     ├ sddk::matrix_storage::matrix_storage                             10.34 μs →  11.41 μs    (+10.33%)           1   →      1               
+  │     └ sirius::K_point::update                                          14.14 ms →  14.00 ms     (-1.03%)           1   →      1               
+  │       └ sirius::Beta_projectors                                        10.17 ms →  10.12 ms     (-0.43%)           1   →      1               
+  │         └ sirius::Beta_projectors::generate_pw_coefs_t                  8.20 ms →   8.29 ms     (+1.06%)           1   →      1               
+  ├ sirius::Smooth_periodic_function                                        2.58 ms →   2.58 ms     (+0.08%)           2   →      2               
+  ├ sirius::Potential                                                      51.30 ms →  49.76 ms     (-3.01%)           1   →      1               
+  │ ├ sirius::Smooth_periodic_function                                      2.90 ms →   2.94 ms     (+1.33%)           6   →      6               
+  │ └ sirius::Potential::update                                            33.32 ms →  31.51 ms     (-5.43%)           1   →      1               
+  │   └ sirius::Potential::generate_local_potential                        32.91 ms →  31.11 ms     (-5.46%)           1   →      1               
+  │     ├ sirius::Simulation_context::make_periodic_function               24.08 ms →  26.14 ms     (+8.56%)           1   →      1               
++ │     └ sirius::Smooth_periodic_function::fft_transform                   8.28 ms →   4.44 ms    (-46.37%)           1   →      1               
+  ├ sirius::Density                                                        41.20 ms →  38.28 ms     (-7.08%)           1   →      1               
+  │ ├ sirius::Smooth_periodic_function                                      2.82 ms →   2.82 ms     (-0.06%)           2   →      2               
+  │ └ sirius::Density::update                                              35.42 ms →  32.50 ms     (-8.24%)           1   →      1               
+  │   └ sirius::Density::generate_pseudo_core_charge_density               35.20 ms →  32.27 ms     (-8.31%)           1   →      1               
+  │     ├ sirius::rho_core_ri_pseudo|values                                77.32 μs →  79.19 μs     (+2.42%)           1   →      1               
+  │     ├ sirius::Simulation_context::make_periodic_function               24.15 ms →  26.04 ms     (+7.82%)           1   →      1               
++ │     └ sirius::Smooth_periodic_function::fft_transform                  10.68 ms →   5.87 ms    (-45.07%)           1   →      1               
+  ├ sirius::Density::initial_density                                       60.53 ms →  56.49 ms     (-6.69%)           1   →      1               
+  │ ├ sirius::Simulation_context::make_periodic_function                   25.13 ms →  26.33 ms     (+4.76%)           1   →      1               
++ │ ├ sirius::Smooth_periodic_function::fft_transform                       8.19 ms →   5.69 ms    (-30.49%)           2   →      2               
+  │ └ sirius::Periodic_function::integrate                                  5.40 ms →   5.09 ms     (-5.72%)           1   →      1               
+  ├ sirius::Potential::generate                                           368.69 ms → 363.99 ms     (-1.27%)           1   →      1               
++ │ ├ sirius::Potential::poisson                                           41.59 ms →  36.50 ms    (-12.22%)           1   →      1               
++ │ │ ├ sirius::Smooth_periodic_function::fft_transform                    12.50 ms →   5.49 ms    (-56.11%)           1   →      1               
+  │ │ └ sirius::Periodic_function|inner                                     5.91 ms →   5.67 ms     (-4.07%)           1   →      1               
+  │ │   └ sirius::Periodic_function|inner_local                             4.85 ms →   4.84 ms     (-0.09%)           1   →      1               
+  │ │     └ sirius::Smooth_periodic_function|inner_local                    4.84 ms →   4.84 ms     (-0.04%)           1   →      1               
+  │ ├ sirius::Periodic_function::add                                      786.33 μs → 777.04 μs     (-1.18%)           2   →      2               
+  │ ├ sirius::Potential::xc                                                50.86 ms →  51.74 ms     (+1.72%)           1   →      1               
+  │ │ └ sirius::Potential::xc_rg_nonmagnetic                               49.66 ms →  50.53 ms     (+1.75%)           1   →      1               
+  │ │   ├ sirius::Smooth_periodic_function                                  2.55 ms →   2.54 ms     (-0.51%)           2   →      2               
+  │ │   └ sirius::Smooth_periodic_function::fft_transform                   4.07 ms →   4.41 ms     (+8.30%)           1   →      1               
+  │ ├ sirius::Smooth_periodic_function::fft_transform                       3.59 ms →   3.69 ms     (+2.71%)           1   →      1               
+  │ ├ sirius::Potential::generate_D_operator_matrix                       269.66 ms → 269.13 ms     (-0.19%)           1   →      1               
++ │ └ sirius::Potential::generate_PAW_effective_potential                 169.00 ns →  77.00 ns    (-54.44%)           1   →      1               
+- ├ sirius::Hamiltonian0                                                    6.50 ms →   8.06 ms    (+24.02%)           1   →      1               
+- │ ├ sirius::Local_operator                                                5.93 ms →   7.29 ms    (+22.91%)           1   →      1               
+  │ │ ├ sirius::Smooth_periodic_function                                    2.76 ms →   2.75 ms     (-0.41%)           1   →      1               
+- │ │ └ sirius::Smooth_periodic_function::fft_transform                     2.36 ms →   3.60 ms    (+52.28%)           1   →      1               
+- │ ├ sirius::Non_local_operator                                          105.62 μs → 248.83 μs   (+135.59%)           2   →      2               
++ │ ├ sirius::D_operator::initialize                                      153.04 μs → 103.47 μs    (-32.39%)           1   →      1               
++ │ └ sirius::Q_operator::initialize                                      115.17 μs →  95.18 μs    (-17.36%)           1   →      1               
+  ├ sirius::Band::initialize_subspace                                       1.28 s  →   1.30 s      (+1.36%)           1   →      1               
+  │ ├ sirius::Hamiltonian_k                                                53.21 ms →  54.74 ms     (+2.88%)           1   →      1               
++ │ │ ├ sirius::Local_operator::prepare_k                                 370.78 μs → 315.43 μs    (-14.93%)           1   →      1               
+  │ │ └ sirius::Beta_projectors_base::prepare                              52.84 ms →  54.43 ms     (+3.00%)           1   →      1               
+  │ ├ sirius::Band::initialize_subspace|kp                                  1.23 s  →   1.24 s      (+1.30%)           1   →      1               
+  │ │ ├ sddk::matrix_storage::matrix_storage                               78.76 ms →  76.73 ms     (-2.58%)           4   →      4               
+- │ │ ├ sirius::K_point::generate_atomic_wave_functions                    37.22 ms →  55.50 ms    (+49.12%)           1   →      1               
+- │ │ ├ sirius::Band::initialize_subspace|kp|wf                             6.66 ms →   8.67 ms    (+30.10%)           1   →      1               
+  │ │ ├ sirius::Hamiltonian_k::apply_h_s                                  313.40 ms → 336.35 ms     (+7.32%)           1   →      1               
+  │ │ │ ├ sirius::Local_operator::apply_h                                 245.41 ms → 248.01 ms     (+1.06%)           1   →      1               
+  │ │ │ │ ├ sddk::matrix_storage::remap_forward                             3.79 μs →   3.74 μs     (-1.34%)           1   →      1               
+  │ │ │ │ │ └ sddk::matrix_storage::set_num_extra                           2.81 μs →   2.88 μs     (+2.67%)           1   →      1               
+  │ │ │ │ ├ sddk::matrix_storage::set_num_extra                           425.00 ns → 419.00 ns     (-1.41%)           1   →      1               
+  │ │ │ │ └ sddk::matrix_storage::remap_backward                          626.00 ns → 671.00 ns     (+7.19%)           1   →      1               
+  │ │ │ ├ sirius::Beta_projectors_base::generate                            3.18 ms →   3.18 ms     (-0.21%)           1   →      1               
+  │ │ │ ├ sirius::Beta_projectors_base::inner                              21.29 ms →  21.41 ms     (+0.54%)           1   →      1               
+- │ │ │ └ sirius::Non_local_operator::apply                                21.73 ms →  31.85 ms    (+46.55%)           2   →      2               
+- │ │ ├ sirius::Band::set_subspace_mtrx                                     5.32 ms →  14.28 ms   (+168.32%)           2   →      2               
+- │ │ │ └ sddk::inner                                                       5.11 ms →  14.07 ms   (+175.23%)           2   →      2               
+  │ │ │   └ sddk::inner|local                                              25.60 μs →  27.43 μs     (+7.15%)           2   →      2               
++ │ │ ├ Eigensolver_cuda|zhegvdx                                          270.58 ms → 232.08 ms    (-14.23%)           1   →      1               
+- │ │ └ sddk::transform                                                     2.82 ms →   5.22 ms    (+85.05%)           1   →      1               
+  │ │   ├ sddk::transform|init                                             14.50 μs →  14.52 μs     (+0.14%)           1   →      1               
+- │ │   └ sddk::transform|local                                            17.13 μs →  21.04 μs    (+22.83%)           1   →      1               
++ │ └ sirius::Beta_projectors_base::dismiss                               562.00 ns → 416.00 ns    (-25.98%)           1   →      1               
+  ├ sirius::DFT_ground_state::scf_loop                                    113.81 s  → 122.35 s      (+7.51%)           1   →      1               
+  │ ├ sirius::Smooth_periodic_function                                      2.46 ms →   2.44 ms     (-1.09%)          19   →     19               
+  │ ├ sirius::DFT_ground_state::scf_loop|iteration                          2.52 s  →   2.49 s      (-1.33%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Hamiltonian0                                                5.03 ms →   5.00 ms     (-0.68%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Local_operator                                            4.33 ms →   4.23 ms     (-2.31%)          45   →     49       (+8.89%)
+  │ │ │ │ ├ sirius::Smooth_periodic_function                              558.52 μs → 560.46 μs     (+0.35%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::Smooth_periodic_function::fft_transform                 2.68 ms →   2.68 ms     (-0.34%)          45   →     49       (+8.89%)
+- │ │ │ ├ sirius::Non_local_operator                                      201.11 μs → 237.25 μs    (+17.97%)          90   →     98       (+8.89%)
+  │ │ │ ├ sirius::D_operator::initialize                                  123.72 μs → 118.78 μs     (-3.99%)          45   →     49       (+8.89%)
+  │ │ │ └ sirius::Q_operator::initialize                                   95.05 μs →  96.17 μs     (+1.18%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Band::solve                                                 1.29 s  →   1.26 s      (-2.58%)          45   →     49       (+8.89%)
+- │ │ │ ├ sirius::Hamiltonian_k                                           243.06 μs → 276.70 μs    (+13.84%)          45   →     49       (+8.89%)
+- │ │ │ │ ├ sirius::Local_operator::prepare_k                             234.47 μs → 268.12 μs    (+14.35%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::Beta_projectors_base::prepare                           6.29 μs →   6.29 μs     (-0.03%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Band::diag_pseudo_potential_davidson                      1.26 s  →   1.23 s      (-2.55%)          45   →     49       (+8.89%)
+  │ │ │ │ ├ sirius::Band::diag_pseudo_potential_davidson|alloc             47.32 ms →  45.69 ms     (-3.45%)          45   →     49       (+8.89%)
+  │ │ │ │ │ └ sddk::matrix_storage::matrix_storage                          3.36 ms →   3.20 ms     (-4.51%)         270   →    294       (+8.89%)
+  │ │ │ │ ├ sirius::Hamiltonian_k::get_h_o_diag                            18.15 ms →  17.42 ms     (-3.98%)          45   →     49       (+8.89%)
+  │ │ │ │ │ ├ sirius::Hamiltonian_k::get_h_o_diag|1                       454.64 μs → 460.17 μs     (+1.22%)          45   →     49       (+8.89%)
+  │ │ │ │ │ └ sirius::Hamiltonian_k::get_h_o_diag|3                         8.66 ms →   8.29 ms     (-4.22%)          90   →     98       (+8.89%)
+  │ │ │ │ └ sirius::Band::diag_pseudo_potential_davidson|iter               1.19 s  →   1.16 s      (-2.44%)          45   →     49       (+8.89%)
+! │ │ │ │   ├ sirius::Hamiltonian_k::apply_h_s                             36.43 ms →  34.66 ms     (-4.85%)         800   →    899      (+12.38%)
+! │ │ │ │   │ ├ sirius::Local_operator::apply_h                            18.61 ms →  17.78 ms     (-4.46%)         800   →    899      (+12.38%)
+! │ │ │ │   │ │ ├ sddk::matrix_storage::remap_forward                       1.91 μs →   1.99 μs     (+4.40%)         800   →    899      (+12.38%)
+! │ │ │ │   │ │ │ └ sddk::matrix_storage::set_num_extra                     1.58 μs →   1.67 μs     (+5.88%)         800   →    899      (+12.38%)
+! │ │ │ │   │ │ ├ sddk::matrix_storage::set_num_extra                     444.57 ns → 468.99 ns     (+5.49%)         800   →    899      (+12.38%)
+! │ │ │ │   │ │ └ sddk::matrix_storage::remap_backward                    635.96 ns → 660.86 ns     (+3.91%)         800   →    899      (+12.38%)
+! │ │ │ │   │ ├ sirius::Beta_projectors_base::generate                      2.89 ms →   2.75 ms     (-5.03%)         800   →    899      (+12.38%)
+! │ │ │ │   │ ├ sirius::Beta_projectors_base::inner                         2.50 ms →   2.36 ms     (-5.48%)         800   →    899      (+12.38%)
+! │ │ │ │   │ └ sirius::Non_local_operator::apply                           6.20 ms →   5.88 ms     (-5.26%)        1.60 K →   1.80 K    (+12.38%)
+! │ │ │ │   ├ sddk::orthogonalize                                           3.87 ms →   3.64 ms     (-5.97%)         800   →    899      (+12.38%)
+! │ │ │ │   │ ├ sddk::inner                                               569.91 μs → 513.72 μs     (-9.86%)        1.55 K →   1.75 K    (+12.48%)
+! │ │ │ │   │ │ └ sddk::inner|local                                        23.18 μs →  23.18 μs     (+0.02%)        1.55 K →   1.75 K    (+12.48%)
+! │ │ │ │   │ ├ sddk::orthogonalize|tmtrx                                  89.45 μs →  83.96 μs     (-6.13%)         800   →    899      (+12.38%)
+! │ │ │ │   │ ├ sddk::orthogonalize|transform                               1.43 ms →   1.35 ms     (-5.40%)         800   →    899      (+12.38%)
+! │ │ │ │   │ └ sddk::transform                                             1.32 ms →   1.27 ms     (-3.43%)         755   →    850      (+12.58%)
+! │ │ │ │   │   ├ sddk::transform|init                                     20.32 μs →  20.40 μs     (+0.41%)         755   →    850      (+12.58%)
+! │ │ │ │   │   └ sddk::transform|local                                     8.05 μs →   8.17 μs     (+1.47%)        2.27 K →   2.55 K    (+12.58%)
+! │ │ │ │   ├ sirius::Band::set_subspace_mtrx                             923.51 μs → 881.45 μs     (-4.55%)         800   →    899      (+12.38%)
+! │ │ │ │   │ └ sddk::inner                                               855.47 μs → 810.28 μs     (-5.28%)         800   →    899      (+12.38%)
+! │ │ │ │   │   └ sddk::inner|local                                        22.09 μs →  21.77 μs     (-1.44%)         800   →    899      (+12.38%)
+! │ │ │ │   ├ Eigensolver_cuda|zheevdx                                     22.93 ms →  21.73 ms     (-5.23%)         800   →    899      (+12.38%)
++ │ │ │ │   ├ sirius::residuals                                             2.05 ms →   1.78 ms    (-12.91%)         762   →    856      (+12.34%)
++ │ │ │ │   │ ├ sddk::transform                                             1.04 ms → 917.50 μs    (-11.84%)         759   →    853      (+12.38%)
+! │ │ │ │   │ │ ├ sddk::transform|init                                     17.78 μs →  17.57 μs     (-1.17%)         759   →    853      (+12.38%)
+! │ │ │ │   │ │ └ sddk::transform|local                                    10.30 μs →  10.48 μs     (+1.78%)        1.52 K →   1.71 K    (+12.38%)
++ │ │ │ │   │ └ sirius::normalized_preconditioned_residuals               922.87 μs → 782.12 μs    (-15.25%)         759   →    853      (+12.38%)
++ │ │ │ │   └ sirius::Band::diag_pseudo_potential_davidson|update_phi       6.62 ms →   5.36 ms    (-19.11%)          80   →     84       (+5.00%)
++ │ │ │ │     └ sddk::transform                                             4.57 ms →   3.74 ms    (-18.05%)         115   →    119       (+3.48%)
+  │ │ │ │       ├ sddk::transform|init                                     10.77 μs →  11.15 μs     (+3.49%)         115   →    119       (+3.48%)
+  │ │ │ │       └ sddk::transform|local                                     9.77 μs →  10.14 μs     (+3.76%)         150   →    154       (+2.67%)
+  │ │ │ ├ sirius::Beta_projectors_base::dismiss                           540.58 ns → 584.04 ns     (+8.04%)          45   →     49       (+8.89%)
+  │ │ │ └ sirius::K_point_set::sync_band_energies                          19.85 μs →  19.99 μs     (+0.66%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::K_point_set::find_band_occupancies                          1.54 ms →   1.46 ms     (-5.21%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Density::generate                                         565.76 ms → 567.73 ms     (+0.35%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Density::generate_valence                               394.03 ms → 401.66 ms     (+1.94%)          45   →     49       (+8.89%)
+  │ │ │ │ ├ sddk::matrix_storage::remap_forward                             8.06 μs →   8.80 μs     (+9.20%)          45   →     49       (+8.89%)
+  │ │ │ │ │ └ sddk::matrix_storage::set_num_extra                           7.15 μs →   7.65 μs     (+6.92%)          45   →     49       (+8.89%)
++ │ │ │ │ ├ sirius::Density::add_k_point_contribution_dm                   40.51 ms →  35.10 ms    (-13.36%)          45   →     49       (+8.89%)
+  │ │ │ │ │ ├ sirius::Beta_projectors_base::prepare                         7.32 μs →   7.60 μs     (+3.74%)          45   →     49       (+8.89%)
++ │ │ │ │ │ ├ sirius::Beta_projectors_base::generate                        6.78 ms →   5.46 ms    (-19.49%)          45   →     49       (+8.89%)
++ │ │ │ │ │ ├ sirius::Beta_projectors_base::inner                          32.67 ms →  28.61 ms    (-12.43%)          45   →     49       (+8.89%)
+  │ │ │ │ │ └ sirius::Beta_projectors_base::dismiss                       591.36 ns → 591.45 ns     (+0.02%)          45   →     49       (+8.89%)
+  │ │ │ │ ├ sirius::Density::add_k_point_contribution_rg                  105.41 ms → 110.42 ms     (+4.75%)          45   →     49       (+8.89%)
+- │ │ │ │ ├ sirius::Smooth_periodic_function::fft_transform                 1.85 ms →   2.05 ms    (+10.53%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::Density::augment                                      207.46 ms → 219.47 ms     (+5.79%)          45   →     49       (+8.89%)
+  │ │ │ │   └ sirius::Density::generate_rho_aug                           207.23 ms → 219.25 ms     (+5.80%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Field4D::symmetrize                                     144.22 ms → 137.63 ms     (-4.57%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::symmetrize_function|fpw                               144.22 ms → 137.63 ms     (-4.57%)          45   →     49       (+8.89%)
++ │ │ │ │   ├ sddk::Gvec_shells::remap_forward                             62.25 ms →  54.52 ms    (-12.42%)          45   →     49       (+8.89%)
+  │ │ │ │   ├ sirius::symmetrize_function|fpw|local                        68.73 ms →  69.87 ms     (+1.66%)          45   →     49       (+8.89%)
+  │ │ │ │   └ sddk::Gvec_shells::remap_backward                            12.60 ms →  12.61 ms     (+0.03%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Density::symmetrize_density_matrix                       23.73 ms →  24.21 ms     (+2.02%)          45   →     49       (+8.89%)
+- │ │ │ └ sirius::Smooth_periodic_function::fft_transform                   3.78 ms →   4.23 ms    (+12.00%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Density::mix                                              148.31 ms → 152.27 ms     (+2.67%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Density::mixer_input                                      1.01 ms → 938.61 μs     (-7.03%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Periodic_function|inner                                   4.67 ms →   4.89 ms     (+4.70%)         619   →    679       (+9.69%)
+  │ │ │ │ └ sirius::Periodic_function|inner_local                           4.62 ms →   4.61 ms     (-0.25%)         619   →    679       (+9.69%)
+  │ │ │ │   └ sirius::Smooth_periodic_function|inner_local                  4.62 ms →   4.61 ms     (-0.25%)         619   →    679       (+9.69%)
+- │ │ │ └ sirius::Density::mixer_output                                     4.59 ms →   5.29 ms    (+15.24%)          45   →     49       (+8.89%)
+- │ │ │   └ sirius::Smooth_periodic_function::fft_transform                 3.86 ms →   4.62 ms    (+19.66%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Potential::generate                                       362.70 ms → 355.92 ms     (-1.87%)          45   →     49       (+8.89%)
++ │ │ │ ├ sirius::Potential::poisson                                       42.28 ms →  35.85 ms    (-15.20%)          45   →     49       (+8.89%)
++ │ │ │ │ ├ sirius::Smooth_periodic_function::fft_transform                13.21 ms →   4.91 ms    (-62.86%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::Periodic_function|inner                                 5.93 ms →   5.61 ms     (-5.31%)          45   →     49       (+8.89%)
+  │ │ │ │   └ sirius::Periodic_function|inner_local                         4.84 ms →   4.84 ms     (-0.06%)          45   →     49       (+8.89%)
+  │ │ │ │     └ sirius::Smooth_periodic_function|inner_local                4.84 ms →   4.84 ms     (-0.06%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Periodic_function::add                                  841.98 μs → 792.54 μs     (-5.87%)          90   →     98       (+8.89%)
+  │ │ │ ├ sirius::Potential::xc                                            44.59 ms →  44.79 ms     (+0.46%)          45   →     49       (+8.89%)
+  │ │ │ │ └ sirius::Potential::xc_rg_nonmagnetic                           43.41 ms →  43.62 ms     (+0.48%)          45   →     49       (+8.89%)
+  │ │ │ │   ├ sirius::Smooth_periodic_function                            663.39 μs → 664.68 μs     (+0.19%)          90   →     98       (+8.89%)
+  │ │ │ │   └ sirius::Smooth_periodic_function::fft_transform               4.14 ms →   4.55 ms     (+9.94%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Smooth_periodic_function::fft_transform                   3.87 ms →   3.68 ms     (-4.85%)          45   →     49       (+8.89%)
+  │ │ │ ├ sirius::Potential::generate_D_operator_matrix                   268.87 ms → 268.59 ms     (-0.10%)          45   →     49       (+8.89%)
++ │ │ │ └ sirius::Potential::generate_PAW_effective_potential             164.60 ns → 138.08 ns    (-16.11%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Field4D::symmetrize                                        95.33 ms →  96.30 ms     (+1.02%)          45   →     49       (+8.89%)
+  │ │ │ └ sirius::symmetrize_function|fpw                                  95.33 ms →  96.30 ms     (+1.02%)          45   →     49       (+8.89%)
+  │ │ │   ├ sddk::Gvec_shells::remap_forward                               13.57 ms →  13.27 ms     (-2.15%)          45   →     49       (+8.89%)
+  │ │ │   ├ sirius::symmetrize_function|fpw|local                          68.59 ms →  69.83 ms     (+1.80%)          45   →     49       (+8.89%)
+  │ │ │   └ sddk::Gvec_shells::remap_backward                              12.54 ms →  12.57 ms     (+0.24%)          45   →     49       (+8.89%)
+- │ │ ├ sirius::Smooth_periodic_function::fft_transform                     3.51 ms →   3.87 ms    (+10.33%)          45   →     49       (+8.89%)
+  │ │ ├ sirius::Periodic_function|inner                                     4.81 ms →   4.67 ms     (-2.93%)         315   →    343       (+8.89%)
+  │ │ │ └ sirius::Periodic_function|inner_local                             4.55 ms →   4.55 ms     (+0.03%)         315   →    343       (+8.89%)
+  │ │ │   └ sirius::Smooth_periodic_function|inner_local                    4.55 ms →   4.55 ms     (+0.03%)         315   →    343       (+8.89%)
+  │ │ ├ sirius::Smooth_periodic_function|inner                              4.74 ms →   4.87 ms     (+2.90%)         135   →    147       (+8.89%)
+  │ │ │ └ sirius::Smooth_periodic_function|inner_local                      4.73 ms →   4.87 ms     (+3.00%)         135   →    147       (+8.89%)
+  │ │ ├ sirius::Periodic_function::integrate                                4.54 ms →   4.54 ms     (+0.00%)          45   →     49       (+8.89%)
+  │ │ └ sirius::Density::get_magnetisation                                 75.22 μs →  75.56 μs     (+0.44%)          45   →     49       (+8.89%)
+  │ │   └ sirius::Density::compute_atomic_mag_mom                          70.12 μs →  70.81 μs     (+0.98%)          45   →     49       (+8.89%)
+  │ ├ sirius::Smooth_periodic_function::gather_f_pw                         5.83 ms →   5.73 ms     (-1.69%)           2   →      2               
+  │ ├ sirius::Periodic_function|inner                                       4.81 ms →   4.60 ms     (-4.40%)           6   →      6               
+  │ │ └ sirius::Periodic_function|inner_local                               4.81 ms →   4.54 ms     (-5.61%)           6   →      6               
+  │ │   └ sirius::Smooth_periodic_function|inner_local                      4.81 ms →   4.54 ms     (-5.65%)           6   →      6               
+  │ └ sirius::Smooth_periodic_function|inner                                5.02 ms →   4.71 ms     (-6.08%)           3   →      3               
+  │   └ sirius::Smooth_periodic_function|inner_local                        5.02 ms →   4.71 ms     (-6.10%)           3   →      3               
+  ├ sirius::Periodic_function|inner                                         4.80 ms →   4.54 ms     (-5.36%)           2   →      2               
+  │ └ sirius::Periodic_function|inner_local                                 4.79 ms →   4.53 ms     (-5.36%)           2   →      2               
+  │   └ sirius::Smooth_periodic_function|inner_local                        4.79 ms →   4.53 ms     (-5.36%)           2   →      2               
+  ├ sirius::Smooth_periodic_function|inner                                  4.99 ms →   4.78 ms     (-4.26%)           1   →      1               
+  │ └ sirius::Smooth_periodic_function|inner_local                          4.99 ms →   4.78 ms     (-4.26%)           1   →      1               
+  └ sirius::finalize                                                      749.31 ms → 746.51 ms     (-0.37%)           1   →      1               
 ```
