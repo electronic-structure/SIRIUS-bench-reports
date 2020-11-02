@@ -1,0 +1,26 @@
+{
+    "id": "0f37ebb1-9ca6-4d4c-a74c-4930b5e7836a",
+    "reference": {
+        "spec": "sirius@develop +scalapack",
+        "cmd": [
+            "sirius.scf"
+        ],
+        "repo": "haampie/SIRIUS",
+        "sha": "392f68b5626168134a99cd6d4a3cc40b87322cb7",
+        "build": true
+    },
+    "current": {
+        "spec": "sirius@develop +scalapack",
+        "cmd": [
+            "sirius.scf"
+        ],
+        "repo": "haampie/SIRIUS",
+        "sha": "f3d65506dd217f3bfa11e8357960357f194d258d",
+        "build": true
+    },
+    "report_to": {
+        "repository": "haampie/SIRIUS",
+        "type": "pr",
+        "issue": 5
+    }
+}
