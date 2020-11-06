@@ -1,0 +1,31 @@
+More logs available here: https://gitlab.com/cscs-ci/electronic-structure/benchmarking/-/pipelines/212821362
+
+Benchmark settings:
+
+```json
+{
+    "id": "fa5d7d61-a15d-42d5-a7b5-3bc591bcc391",
+    "reference": {
+        "spec": "sirius@develop",
+        "cmd": [
+            "sirius.scf"
+        ],
+        "repo": "electronic-structure/SIRIUS",
+        "sha": "81702c64a8be67a2936e3e8bb8ca2c9083dee03b",
+        "build": true
+    },
+    "current": {
+        "spec": "sirius@develop",
+        "cmd": [
+            "sirius.scf"
+        ],
+        "repo": "electronic-structure/SIRIUS",
+        "sha": "e1ce68d49d41c91f8b269558d6cb9276c8e4e886",
+        "build": true
+    },
+    "report_to": {
+        "repository": "electronic-structure/SIRIUS",
+        "type": "commit"
+    }
+}
+```
